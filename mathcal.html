@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malmath</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="images/malmath.png" alt="Your Logo" class="logo">
+        <h1 class="title">Math Calculator</h1>    </div>
+
+    <div class="container">
+        <div class="display">
+            <input id="screen" type="text" placeholder="0">
+        </div>
+
+        <div class="btns">
+            <div class="row">
+                <button id="ce" onclick="backspc()">CE</button>
+                <button onclick="fact()">x!</button>
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                <button class="btn">%</button>
+                <button id="ac" onclick="screen.value=''">AC</button>
+            </div>
+
+            <div class="row">
+                <button onclick="sin()">sin</button>
+                <button onclick="pi()">π</button>
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">÷</button>
+            </div>
+
+            <div class="row">
+                <button onclick="cos()">cos</button>
+                <button onclick="log()">log</button>
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn">×</button>
+            </div>
+
+            <div class="row">
+                <button onclick="tan()">tan</button>
+                <button onclick="sqrt()">√</button>
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">-</button>
+            </div>
+
+            <div class="row">
+                <button onclick="e()">e</button>
+                <button onclick="pow()">x <span style="position: relative; bottom: .4em; right: .1em;">y</span>
+                </button>
+                <button class="btn">0</button>
+                <button class="btn">.</button>
+                <button id="eval" onclick="screen.value=eval(screen.value)">=</button>
+                <button class="btn">+</button>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="center-static">
+            <div class="button-container">
+                <a href="https://play.google.com/store/apps/details?id=com.malmath.apps.mm&amp;pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank" class="item google-play">
+                    <span class="sr-only">Google Play Store</span> <!-- Accessibility text -->
+                </a>
+                <a href="https://apps.apple.com/de/app/malmath-step-by-step-solver/id1476990256?l=en" target="_blank" class="item apple-store">
+                    <span class="sr-only">Apple App Store</span> <!-- Accessibility text -->
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+    <script>
+        const googlePlayButton = document.getElementById("googlePlayButton");
+        googlePlayButton.addEventListener("mouseenter", function() {
+            this.style.opacity = "0.8"; 
+        });
+        googlePlayButton.addEventListener("mouseleave", function() {
+            this.style.opacity = "1"; 
+        });
+
+        const appStoreButton = document.getElementById("appStoreButton");
+        appStoreButton.addEventListener("mouseenter", function() {
+            this.style.opacity = "0.8"; 
+        });
+        appStoreButton.addEventListener("mouseleave", function() {
+            this.style.opacity = "1"; 
+        });
+    </script>
+
+
+</body>
+
+</html>
