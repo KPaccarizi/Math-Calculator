@@ -1,6 +1,10 @@
+
 var screen = document.querySelector('#screen');
-var btn = document.querySelectorAll('.btn');
 var historyList = document.getElementById('history-list'); // Reference to the history list
+var currentExpression = '';
+
+var btn = document.querySelectorAll('.btn');
+
 
 
 for (item of btn) {
@@ -20,36 +24,41 @@ for (item of btn) {
 
 
 
-
+// Evaluate the expression and update history
 function calculateResult() {
-  const expression = screen.value;
-  const result = eval(expression); // Consider using a safer alternative
-  screen.value = result;
-  updateHistory(expression, result);
+    const expression = screen.value;
+    try {
+        const result = math.evaluate(expression); // Safer than eval()
+        updateHistory(expression, result);
+        screen.value = result;
+    } catch (error) {
+        screen.value = 'Error';
+    }
 }
 
-// Event listener for the "=" button (ID: eval)
+
+/// Event listener for the "=" button (ID: eval)
 document.getElementById('eval').addEventListener('click', () => {
     const expression = screen.value;
-    const result = eval(expression); // Consider safer alternative
+    const result = math.evaluate(expression); // Safer than eval()
+    updateHistory(expression, result); // Call here to update history BEFORE updating the screen value
     screen.value = result;
-    updateHistory(expression, result); // Call here to update history
-  });
+});
 
 // Function to update the history sidebar
 function updateHistory(expression, result) {
     const listItem = document.createElement('li');
     listItem.textContent = `${expression} = ${result}`;
     console.log(listItem.textContent);
-
     historyList.appendChild(listItem);
-  }
-  
+}
 
-  function toggleHistory() {
+function toggleHistory() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('show');
 }
+
+
 
     // Toggle sidebar visibility
 
