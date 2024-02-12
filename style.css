@@ -189,17 +189,52 @@ body {
     transform: scale(1.1); /* Scale up the button on hover */
 }
 
-#sidebar {
-    position: fixed;
-    top: 0;
-    right: 0; /* Position on the right side */
-    width: 200px; /* Adjust as needed */
-    height: 100%;
-    background-color: #f2f2f2;
+.sidebar {
+    height: 100%; /* Set the initial height to match the viewport */
+    width: 250px;
+    position: fixed; /* Fix the position of the sidebar */
+    top: 0; /* Position it at the top of the viewport */
+    right: -250px; /* Initially hide the sidebar on the right */
+    background-color: #f3f3f3;
     padding: 20px;
-    overflow-y: auto;
-    border-left: 1px solid #ccc; /* Add a border for separation */
+    box-sizing: border-box;
+    transition: right 0.5s ease; /* Apply transition for smooth animation */
 }
+
+.sidebar.show {
+    right: 0; /* Show the sidebar by moving it to the right */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+}
+
+.container {
+    /* Adjust margin to accommodate the sidebar */
+    margin-right: 250px; /* Match the width of the sidebar */
+}
+
+#toggleHistoryBtn {
+    position: fixed; /* Fix the position of the toggle button */
+    top: 20px; /* Position it at the top of the viewport */
+    right: 20px; /* Position it at the right side with some space from the edge */
+    z-index: 999; /* Ensure it's above other content */
+    cursor: pointer;
+    background-color: white; /* Set background color to white */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Increase padding to make the button bigger */
+    font-size: 16px; /* Increase font size */
+    border-radius: 8px; /* Add border radius for rounded corners */
+}
+
+
+
 
 #sidebar h2 {
     margin-bottom: 10px;
@@ -215,4 +250,3 @@ body {
     margin-bottom: 10px;
     font-size: 14px;
 }
-

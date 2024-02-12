@@ -18,6 +18,9 @@ for (item of btn) {
   });
 }
 
+
+
+
 function calculateResult() {
   const expression = screen.value;
   const result = eval(expression); // Consider using a safer alternative
@@ -43,6 +46,19 @@ function updateHistory(expression, result) {
   }
   
 
+  function toggleHistory() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+}
+
+    // Toggle sidebar visibility
+
+    // Change button text based on sidebar visibility
+    if (sidebar.classList.contains('collapsed')) {
+        toggleButton.textContent = 'Maximize';
+    } else {
+        toggleButton.textContent = 'Minimize';
+    }
 
 
 function sin() {
