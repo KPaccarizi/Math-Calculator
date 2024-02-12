@@ -1,5 +1,13 @@
 var screen = document.querySelector('#screen');
 var btn = document.querySelectorAll('.btn');
+var historyList = document.getElementById('history-list'); // Reference to the history list
+
+// Function to update the history sidebar
+function updateHistory(expression, result) {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${expression} = ${result}`;
+    historyList.appendChild(listItem);
+}
 
 for (item of btn) {
     item.addEventListener('click', (e) => {
@@ -16,41 +24,71 @@ for (item of btn) {
     });
 }
 
+// Add event listener for the "=" button to calculate result and update history
+document.getElementById('equals').addEventListener('click', () => {
+    const expression = screen.value;
+    const result = eval(expression);
+    screen.value = result;
+    updateHistory(expression, result);
+});
+
 function sin() {
-    screen.value = Math.sin(screen.value);
+    const expression = screen.value;
+    const result = Math.sin(expression);
+    screen.value = result;
+    updateHistory(expression, result);
 }
 
 function cos() {
-    screen.value = Math.cos(screen.value);
+    const expression = screen.value;
+    const result = Math.cos(expression);
+    screen.value = result;
+    updateHistory(expression, result);
 }
 
 function tan() {
-    screen.value = Math.tan(screen.value);
+    const expression = screen.value;
+    const result = Math.tan(expression);
+    screen.value = result;
+    updateHistory(expression, result);
 }
 
 function pow() {
-    screen.value = Math.pow(screen.value, 2);
+    const expression = screen.value;
+    const result = Math.pow(expression, 2);
+    screen.value = result;
+    updateHistory(expression, result);
 }
 
 function sqrt() {
-    screen.value = Math.sqrt(screen.value, 2);
+    const expression = screen.value;
+    const result = Math.sqrt(expression);
+    screen.value = result;
+    updateHistory(expression, result);
 }
 
 function log() {
-    screen.value = Math.log(screen.value);
+    const expression = screen.value;
+    const result = Math.log(expression);
+    screen.value = result;
+    updateHistory(expression, result);
 }
 
 function pi() {
-    screen.value = 3.14159265359;
+    const result = 3.14159265359;
+    screen.value = result;
+    updateHistory('π', result);
 }
 
 function e() {
-    screen.value = 2.71828182846;
+    const result = 2.71828182846;
+    screen.value = result;
+    updateHistory('e', result);
 }
 
 function fact() {
     var i, num, f;
-    f = 1
+    f = 1;
     num = screen.value;
     for (i = 1; i <= num; i++) {
         f = f * i;
@@ -59,33 +97,31 @@ function fact() {
     i = i - 1;
 
     screen.value = f;
+    updateHistory(`fact(${num})`, f);
 }
 
 function backspc() {
     screen.value = screen.value.substr(0, screen.value.length - 1);
+    // You might want to add logic here to update history accordingly
 }
 
-
 const googlePlayButton = document.querySelector('.google-play');
-    const appleStoreButton = document.querySelector('.apple-store');
+const appleStoreButton = document.querySelector('.apple-store');
 
-    // Add event listeners for mouse enter and leave events
-    googlePlayButton.addEventListener('mouseenter', function() {
-        this.classList.add('hovered'); // Add a class to apply hover effect
-    });
-    googlePlayButton.addEventListener('mouseleave', function() {
-        this.classList.remove('hovered'); // Remove the class to revert hover effect
-    });
+// Add event listeners for mouse enter and leave events
+googlePlayButton.addEventListener('mouseenter', function() {
+    this.classList.add('hovered'); // Add a class to apply hover effect
+});
+googlePlayButton.addEventListener('mouseleave', function() {
+    this.classList.remove('hovered'); // Remove the class to revert hover effect
+});
 
-    appleStoreButton.addEventListener('mouseenter', function() {
-        this.classList.add('hovered'); // Add a class to apply hover effect
-    });
-    appleStoreButton.addEventListener('mouseleave', function() {
-        this.classList.remove('hovered'); // Remove the class to revert hover effect
-    });
-
-
-
+appleStoreButton.addEventListener('mouseenter', function() {
+    this.classList.add('hovered'); // Add a class to apply hover effect
+});
+appleStoreButton.addEventListener('mouseleave', function() {
+    this.classList.remove('hovered'); // Remove the class to revert hover effect
+});
 
 // Select the navbar element
 const navbar = document.getElementById('navbar');

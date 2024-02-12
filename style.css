@@ -188,3 +188,31 @@ body {
 .item.hovered {
     transform: scale(1.1); /* Scale up the button on hover */
 }
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0; /* Position on the right side */
+    width: 200px; /* Adjust as needed */
+    height: 100%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    overflow-y: auto;
+    border-left: 1px solid #ccc; /* Add a border for separation */
+}
+
+#sidebar h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+}
+
+#history-list li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
