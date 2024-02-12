@@ -83,3 +83,24 @@ const googlePlayButton = document.querySelector('.google-play');
     appleStoreButton.addEventListener('mouseleave', function() {
         this.classList.remove('hovered'); // Remove the class to revert hover effect
     });
+
+
+
+
+// Select the navbar element
+const navbar = document.getElementById('navbar');
+
+// Create an image element for the logo
+const logo = document.createElement('img');
+logo.src = 'images/malmath.png';
+logo.alt = 'Your Logo';
+logo.classList.add('logo');
+
+// Create an h1 element for the title
+const title = document.createElement('h1');
+title.textContent = 'Math Calculator';
+title.classList.add('title');
+
+// Append the logo and title to the navbar
+navbar.appendChild(logo);
+navbar.appendChild(title);
