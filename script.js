@@ -64,3 +64,22 @@ function fact() {
 function backspc() {
     screen.value = screen.value.substr(0, screen.value.length - 1);
 }
+
+
+const googlePlayButton = document.querySelector('.google-play');
+    const appleStoreButton = document.querySelector('.apple-store');
+
+    // Add event listeners for mouse enter and leave events
+    googlePlayButton.addEventListener('mouseenter', function() {
+        this.classList.add('hovered'); // Add a class to apply hover effect
+    });
+    googlePlayButton.addEventListener('mouseleave', function() {
+        this.classList.remove('hovered'); // Remove the class to revert hover effect
+    });
+
+    appleStoreButton.addEventListener('mouseenter', function() {
+        this.classList.add('hovered'); // Add a class to apply hover effect
+    });
+    appleStoreButton.addEventListener('mouseleave', function() {
+        this.classList.remove('hovered'); // Remove the class to revert hover effect
+    });
