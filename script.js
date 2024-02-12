@@ -2,107 +2,120 @@ var screen = document.querySelector('#screen');
 var btn = document.querySelectorAll('.btn');
 var historyList = document.getElementById('history-list'); // Reference to the history list
 
+
+for (item of btn) {
+  item.addEventListener('click', (e) => {
+    btntext = e.target.innerText;
+
+    if (btntext == '×') {
+      btntext = '*';
+    }
+
+    if (btntext == '÷') {
+      btntext = '/';
+    }
+    screen.value += btntext;
+  });
+}
+
+function calculateResult() {
+  const expression = screen.value;
+  const result = eval(expression); // Consider using a safer alternative
+  screen.value = result;
+  updateHistory(expression, result);
+}
+
+// Event listener for the "=" button (ID: eval)
+document.getElementById('eval').addEventListener('click', () => {
+    const expression = screen.value;
+    const result = eval(expression); // Consider safer alternative
+    screen.value = result;
+    updateHistory(expression, result); // Call here to update history
+  });
+
 // Function to update the history sidebar
 function updateHistory(expression, result) {
     const listItem = document.createElement('li');
     listItem.textContent = `${expression} = ${result}`;
+    console.log(listItem.textContent);
+
     historyList.appendChild(listItem);
-}
+  }
+  
 
-for (item of btn) {
-    item.addEventListener('click', (e) => {
-        btntext = e.target.innerText;
 
-        if (btntext == '×') {
-            btntext = '*';
-        }
-
-        if (btntext == '÷') {
-            btntext = '/';
-        }
-        screen.value += btntext;
-    });
-}
-
-// Add event listener for the "=" button to calculate result and update history
-document.getElementById('equals').addEventListener('click', () => {
-    const expression = screen.value;
-    const result = eval(expression);
-    screen.value = result;
-    updateHistory(expression, result);
-});
 
 function sin() {
-    const expression = screen.value;
-    const result = Math.sin(expression);
-    screen.value = result;
-    updateHistory(expression, result);
+  const expression = screen.value;
+  const result = Math.sin(expression);
+  screen.value = result;
+  updateHistory(`sin(${expression})`, result);
 }
 
 function cos() {
-    const expression = screen.value;
-    const result = Math.cos(expression);
-    screen.value = result;
-    updateHistory(expression, result);
+  const expression = screen.value;
+  const result = Math.cos(expression);
+  screen.value = result;
+  updateHistory(`cos(${expression})`, result);
 }
 
 function tan() {
-    const expression = screen.value;
-    const result = Math.tan(expression);
-    screen.value = result;
-    updateHistory(expression, result);
+  const expression = screen.value;
+  const result = Math.tan(expression);
+  screen.value = result;
+  updateHistory(`tan(${expression})`, result);
 }
 
 function pow() {
-    const expression = screen.value;
-    const result = Math.pow(expression, 2);
-    screen.value = result;
-    updateHistory(expression, result);
+  const expression = screen.value;
+  const result = Math.pow(expression, 2);
+  screen.value = result;
+  updateHistory(`${expression}^2`, result);
 }
 
 function sqrt() {
-    const expression = screen.value;
-    const result = Math.sqrt(expression);
-    screen.value = result;
-    updateHistory(expression, result);
+  const expression = screen.value;
+  const result = Math.sqrt(expression);
+  screen.value = result;
+  updateHistory(`sqrt(${expression})`, result);
 }
 
 function log() {
-    const expression = screen.value;
-    const result = Math.log(expression);
-    screen.value = result;
-    updateHistory(expression, result);
+  const expression = screen.value;
+  const result = Math.log(expression);
+  screen.value = result;
+  updateHistory(`log(${expression})`, result);
 }
 
 function pi() {
-    const result = 3.14159265359;
-    screen.value = result;
-    updateHistory('π', result);
+  const result = 3.14159265359;
+  screen.value = result;
+  updateHistory('π', result);
 }
 
 function e() {
-    const result = 2.71828182846;
-    screen.value = result;
-    updateHistory('e', result);
+  const result = 2.71828182846;
+  screen.value = result;
+  updateHistory('e', result);
 }
 
 function fact() {
-    var i, num, f;
-    f = 1;
-    num = screen.value;
-    for (i = 1; i <= num; i++) {
-        f = f * i;
-    }
+  var i, num, f;
+  f = 1;
+  num = screen.value;
+  for (i = 1; i <= num; i++) {
+    f = f * i;
+  }
 
-    i = i - 1;
+  i = i - 1;
 
-    screen.value = f;
-    updateHistory(`fact(${num})`, f);
+  screen.value = f;
+  updateHistory(`fact(${num})`, f);
 }
 
 function backspc() {
-    screen.value = screen.value.substr(0, screen.value.length - 1);
-    // You might want to add logic here to update history accordingly
+  screen.value = screen.value.substr(0, screen.value.length - 1);
+  // You might want to add logic here to update history accordingly
 }
 
 const googlePlayButton = document.querySelector('.google-play');
@@ -110,17 +123,17 @@ const appleStoreButton = document.querySelector('.apple-store');
 
 // Add event listeners for mouse enter and leave events
 googlePlayButton.addEventListener('mouseenter', function() {
-    this.classList.add('hovered'); // Add a class to apply hover effect
+  this.classList.add('hovered'); // Add a class to apply hover effect
 });
 googlePlayButton.addEventListener('mouseleave', function() {
-    this.classList.remove('hovered'); // Remove the class to revert hover effect
+  this.classList.remove('hovered'); // Remove the class to revert hover effect
 });
 
 appleStoreButton.addEventListener('mouseenter', function() {
-    this.classList.add('hovered'); // Add a class to apply hover effect
+  this.classList.add('hovered'); // Add a class to apply hover effect
 });
 appleStoreButton.addEventListener('mouseleave', function() {
-    this.classList.remove('hovered'); // Remove the class to revert hover effect
+  this.classList.remove('hovered'); // Remove the class to revert hover effect
 });
 
 // Select the navbar element
