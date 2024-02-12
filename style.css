@@ -21,8 +21,6 @@ body {
     box-shadow: 13px 13px 20px rgba(0, 0, 0, 0.1); 
 }
 
-
-
 .logo {
     height: 60px; 
     padding: 20px;
@@ -35,7 +33,6 @@ body {
 
 }
 
-
 .container {
     margin-left: 1.8em;
     padding: 90px;
@@ -44,10 +41,6 @@ body {
     background: #f2f4f5;
 
 }
-
-
-
-
 .content {
     width: 100%;
     margin-top: 1.7em;
@@ -183,26 +176,24 @@ body {
 .item {
     transition: transform 0.3s ease;
 }
-
-/* Define the hover effect */
 .item.hovered {
-    transform: scale(1.1); /* Scale up the button on hover */
+    transform: scale(1.1); 
 }
 
 .sidebar {
-    height: 100%; /* Set the initial height to match the viewport */
+    height: 100%; 
     width: 250px;
-    position: fixed; /* Fix the position of the sidebar */
-    top: 0; /* Position it at the top of the viewport */
-    right: -250px; /* Initially hide the sidebar on the right */
+    position: fixed; 
+    top: 0; 
+    right: -250px;
     background-color: #f3f3f3;
     padding: 20px;
     box-sizing: border-box;
-    transition: right 0.5s ease; /* Apply transition for smooth animation */
+    transition: right 0.5s ease; 
 }
 
 .sidebar.show {
-    right: 0; /* Show the sidebar by moving it to the right */
+    right: 0; 
 }
 
 .sidebar-header {
@@ -216,25 +207,21 @@ body {
 }
 
 .container {
-    /* Adjust margin to accommodate the sidebar */
-    margin-right: 250px; /* Match the width of the sidebar */
+    margin-right: 250px; 
 }
 
 #toggleHistoryBtn {
-    position: fixed; /* Fix the position of the toggle button */
-    top: 20px; /* Position it at the top of the viewport */
-    right: 20px; /* Position it at the right side with some space from the edge */
-    z-index: 999; /* Ensure it's above other content */
+    position: fixed;
+    top: 20px; 
+    right: 20px; 
+    z-index: 999; 
     cursor: pointer;
-    background-color: white; /* Set background color to white */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Increase padding to make the button bigger */
-    font-size: 16px; /* Increase font size */
-    border-radius: 8px; /* Add border radius for rounded corners */
+    background-color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 8px; 
 }
-
-
-
 
 #sidebar h2 {
     margin-bottom: 10px;
