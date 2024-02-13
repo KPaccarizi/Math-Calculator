@@ -5,24 +5,20 @@ var currentExpression = '';
 
 var btn = document.querySelectorAll('.btn');
 
-
-
 for (item of btn) {
-  item.addEventListener('click', (e) => {
-    btntext = e.target.innerText;
+    item.addEventListener('click', (e) => {
+        btntext = e.target.innerText;
 
-    if (btntext == '×') {
-      btntext = '*';
-    }
+        if (btntext == '×') {
+            btntext = '*';
+        }
 
-    if (btntext == '÷') {
-      btntext = '/';
-    }
-    screen.value += btntext;
-  });
+        if (btntext == '÷') {
+            btntext = '/';
+        }
+        screen.value += btntext;
+    });
 }
-
-
 
 // Evaluate the expression and update history
 function calculateResult() {
@@ -36,27 +32,34 @@ function calculateResult() {
     }
 }
 
-
-/// Event listener for the "=" button (ID: eval)
-document.getElementById('eval').addEventListener('click', () => {
-    const expression = screen.value;
-    const result = math.evaluate(expression); // Safer than eval()
-    updateHistory(expression, result); // Call here to update history BEFORE updating the screen value
-    screen.value = result;
-});
+// Event listener for the "=" button (ID: eval)
+document.getElementById('eval').addEventListener('click', calculateResult);
 
 // Function to update the history sidebar
 function updateHistory(expression, result) {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${expression} = ${result}`;
-    console.log(listItem.textContent);
-    historyList.appendChild(listItem);
+    const evaluatedExpression = `${expression} = ${result}`;
+    const para = document.createElement('p');
+    para.textContent = evaluatedExpression;
+    historyList.appendChild(para);
 }
+
 
 function toggleHistory() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('show');
 }
+
+function calculation(v) {
+    para = document.createElement('p');
+    para.innerText = v;
+    historyList.appendChild(para);
+    return eval(v.split('=')[0].trim()); // Evaluate the expression part
+}
+
+
+
+
+
 
 
 
@@ -64,9 +67,9 @@ function toggleHistory() {
 
     // Change button text based on sidebar visibility
     if (sidebar.classList.contains('collapsed')) {
-        toggleButton.textContent = 'Maximize';
+        toggleButton.textContent = 'Open History';
     } else {
-        toggleButton.textContent = 'Minimize';
+        toggleButton.textContent = 'Close History';
     }
 
 
