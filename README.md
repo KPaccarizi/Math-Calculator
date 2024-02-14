@@ -42,3 +42,6 @@ If you want to contribute to the project or customize the calculator further, fo
 #### Credits
 This calculator is inspired by the Malmath web application and Coding Challenges 
 
+
+  P.S.: I'm still working on the Calculator and History tab! 😁 
+
