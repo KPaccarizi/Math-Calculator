@@ -39,6 +39,7 @@ If you want to contribute to the project or customize the calculator further, fo
 3. Test your changes by opening the `index.html` file in a web browser.
 4. Commit your changes and push them to your GitHub repository.
 
+![Math Calculator](calculator.png)
 #### Credits
 This calculator is inspired by the Malmath web application and Coding Challenges 
 
